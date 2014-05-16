@@ -98,6 +98,7 @@
             // decode the data
             context.decodeAudioData(request.response, function(buffer) {
                 // when the audio is decoded play the sound
+                alert("start");
                 playSound(buffer);
             }, onError);
         }
@@ -129,6 +130,8 @@
         var array2 =  new Uint8Array(analyser2.frequencyBinCount);
         analyser2.getByteFrequencyData(array2);
         var average2 = getAverageVolume(array2);
+        $("p").text(average);
+        //console.log(average);
 
         // clear the current state
         ctx.clearRect(0, 0, 12, 200);
