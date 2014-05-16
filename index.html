@@ -6,9 +6,9 @@
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-    <p1>Wagner</p1>
+    <p>Wagner</p>
     
-    <canvas id="canvas" width="60" height="130" style="display: block;"></canvas>
+    <canvas id="canvas" width="60" height="200" style="display: block;"></canvas>
     
     <script type="text/javascript">
 
@@ -33,11 +33,11 @@
     // create a gradient for the fill. Note the strange
     // offset, since the gradient is calculated based on
     // the canvas, not the specific element we draw
-    var gradient = ctx.createLinearGradient(0,0,0,130);
-    gradient.addColorStop(1,'#000000');
-    gradient.addColorStop(0.75,'#ff0000');
-    gradient.addColorStop(0.25,'#ffff00');
-    gradient.addColorStop(0,'#ffffff');
+    var gradient = ctx.createLinearGradient(0,0,0,100);
+    gradient.addColorStop(1,'#57c391');
+    gradient.addColorStop(0.75,'#252593');
+    gradient.addColorStop(0.25,'#36bfbf');
+    gradient.addColorStop(0,'#000');
 
 
     // load the sound
@@ -131,14 +131,14 @@
         var average2 = getAverageVolume(array2);
 
         // clear the current state
-        ctx.clearRect(0, 0, 60, 130);
+        ctx.clearRect(0, 0, 12, 200);
 
         // set the fill style
         ctx.fillStyle=gradient;
 
         // create the meters
-        ctx.fillRect(0,130-average,25,130);
-        ctx.fillRect(30,130-average2,25,130);
+        ctx.fillRect(0,200-average,25,200);
+        ctx.fillRect(30,200-average2,25,200);
     }
 
     function getAverageVolume(array) {
@@ -153,8 +153,11 @@
         }
 
         average = values / length;
-        return average;
+
+        return average*3;
     }
+
+
 
 </script>
     
